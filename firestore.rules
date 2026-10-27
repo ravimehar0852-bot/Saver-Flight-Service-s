@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /bookings/{id} {
+      // Customers can only create a new unpaid booking
+      allow create: if request.resource.data.keys().hasOnly(['id','created','name','phone','trip','n','date','intent','note','advance','utr','pay','status'])
+                    && request.resource.data.pay in ['Unpaid','Pay later']
+                    && request.resource.data.status == 'New';
+      // Customers can only add their UTR once, after booking
+      allow update: if request.auth == null
+                    && resource.data.pay == 'Unpaid'
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['utr','pay'])
+                    && request.resource.data.pay == 'Submitted';
+      // Only the logged-in admin can read, edit or delete
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}

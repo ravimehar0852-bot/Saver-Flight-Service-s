@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | Saver Flight Service's</title><meta name="description" content="Admin dashboard"><meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body data-page="admin"><div id="site-header"></div>
+<main><section id="login"><div class="wrap" style="max-width:420px"><h1 style="font-size:2rem;margin-bottom:1rem">Admin login</h1>
+<form id="lf"><label>Password<input type="password" id="pw" autocomplete="current-password"></label><span class="err" id="lerr"></span><button class="btn btn-navy" type="submit">Log in</button></form></div></section>
+<section id="dash" hidden><div class="wrap"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem"><h1 style="font-size:2.2rem">Bookings dashboard</h1><div><button class="btn btn-navy" id="rf">Refresh</button> <button class="btn btn-sun" id="csv">Export CSV</button> <button class="chip" id="lo">Log out</button></div></div>
+<div class="stats" id="stats"></div>
+<div class="tools"><input id="q" placeholder="Search name, phone, trip, ID"><select id="fs"><option value="">All bookings</option><option>New</option><option>Confirmed</option><option>Cancelled</option></select><select id="fp"><option value="">All payments</option><option>Unpaid</option><option>Submitted</option><option>Verified</option><option>Pay later</option><option>Paid</option></select></div>
+<div class="tw"><table><thead><tr><th>Date</th><th>Booking</th><th>Customer</th><th>Trip</th><th>Pax</th><th>Travel date</th><th>Advance</th><th>UTR</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+<h2 style="margin-top:2.5rem;font-size:1.6rem">Bookings by trip</h2><div id="tops" style="max-width:520px"></div></div></section></main>
+<script src="config.js"></script><script src="admin.js"></script></body></html>

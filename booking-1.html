@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking | Saver Flight Service's</title><meta name="description" content="Book flights, hotels and tour packages with Saver Flight Service's.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body data-page="booking.html"><div id="site-header"></div>
+<main><div class="page-head"><div class="wrap"><h1>Book your trip</h1><p>Fill your details, pay a small advance by UPI QR or choose pay later, and we confirm on WhatsApp.</p></div></div>
+<section><div class="wrap two"><div>
+<form id="book" novalidate>
+<label>Name<input name="name" autocomplete="name"><span class="err" id="e-name"></span></label>
+<label>Mobile number<input name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number"><span class="err" id="e-phone"></span></label>
+<label>Service interested in<select name="trip" id="trip"></select><span class="err" id="e-trip"></span></label>
+<div class="row"><label>No. of travellers<input name="n" type="number" min="1" value="2" inputmode="numeric"><span class="err" id="e-n"></span></label>
+<label>Preferred travel date<input name="date" type="date"></label></div>
+<fieldset><legend>Booking status</legend>
+<label class="radio"><input type="radio" name="intent" value="Ready to book" checked> Ready to book</label>
+<label class="radio"><input type="radio" name="intent" value="Need more details"> Need more details</label>
+<label class="radio"><input type="radio" name="intent" value="Just exploring"> Just exploring</label></fieldset>
+<fieldset><legend>Payment option</legend>
+<label class="radio"><input type="radio" name="paymode" value="UPI advance" checked> Pay advance by UPI (<span id="advtxt">₹500</span>)</label>
+<label class="radio"><input type="radio" name="paymode" value="Pay later"> Pay later (we confirm the price first)</label></fieldset>
+<label>Note (optional)<textarea name="note" rows="3" placeholder="Destination, travel dates, hotel category, special request"></textarea></label>
+<button class="btn btn-sun" type="submit">Continue</button></form>
+
+<div id="pay" hidden class="box">
+<h2 style="font-size:1.6rem">Booking received</h2><p id="sum" style="margin-bottom:1rem"></p>
+<p style="margin-bottom:1rem"><button class="btn btn-navy" id="ticket" type="button">Download booking slip (PDF)</button></p>
+<div id="payBox"><div class="pay"><div id="qr"></div><div>
+<p>Advance to pay</p><div class="big" id="amt"></div><p>UPI ID: <b id="upiid"></b></p>
+<p style="font-size:.92rem;color:var(--mute);margin:.5rem 0">Scan with PhonePe, GPay or Paytm. On mobile, tap the button instead.</p>
+<a class="btn btn-navy" id="upilink" href="#">Pay with UPI app</a></div></div>
+<label style="margin-top:1.2rem">After paying, enter UTR / transaction ID<input id="utr" placeholder="12-digit UTR"><span class="err" id="e-utr"></span></label>
+<button class="btn btn-sun" id="utrbtn" type="button" style="margin-top:.6rem">I have paid</button>
+<p id="paid" hidden class="okbox" style="margin-top:1rem">Payment details saved. We will verify and confirm your booking.</p></div>
+<p style="margin-top:1.2rem"><a class="btn btn-sun" id="wa" target="_blank" rel="noopener" href="#">Send details on WhatsApp</a></p></div>
+</div>
+<aside><h2 style="font-size:1.7rem">How booking works</h2>
+<!-- PHOTO: replace with <img class="car-img" src="banner.jpg" alt="Saver Flight Service's"> -->
+<div class="car-ph" style="margin:1rem 0"><b>Photo yahan lagegi</b><span>Flights · Hotels · Tour packages</span></div>
+<div class="steps"><div><b>Send your details</b><br>Name, service, travellers and travel date.</div>
+<div><b>Pay the advance</b><br>Pay a small advance by UPI QR, or choose pay later.</div>
+<div><b>Get confirmation</b><br>We confirm the price and your booking on WhatsApp.</div>
+<div><b>Pay the balance</b><br>Pay the balance as agreed with our team.</div></div></aside>
+</div></section></main>
+<div id="site-footer"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="config.js"></script><script src="app.js"></script></body></html>
